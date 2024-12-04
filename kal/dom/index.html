@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM Manipulation </title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+        }
+        #itemList {
+            list-style-type: none;
+            padding: 0;
+        }
+        #itemList li {
+            background-color: lightgray;
+            padding: 8px;
+            margin-bottom: 5px;
+        }
+        #addItemInput {
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>DOM Manipulation </h1>
+
+    <!-- Input for adding items -->
+    <input type="text" id="addItemInput" placeholder="Enter a new item" />
+    <button id="addItemButton">Add Item</button>
+
+    <!-- List of items -->
+    <ul id="itemList">
+        <li>Example item 1</li>
+        <li>Example item 2</li>
+    </ul>
+
+    <!-- Button to clear all items -->
+    <button id="clearItemsButton">Clear All Items</button>
+
+    <script>
+        // Add new item to the list
+        document.getElementById("addItemButton").addEventListener("click", function() {
+            // Get the value from the input field
+            const newItem = document.getElementById("addItemInput").value;
+            
+            // Check if the input is not empty
+            if (newItem.trim() !== "") {
+                // Create a new list item (li) element
+                const li = document.createElement("li");
+                li.textContent = newItem;
+
+                // Append the new item to the list
+                document.getElementById("itemList").appendChild(li);
+
+                // Clear the input field after adding the item
+                document.getElementById("addItemInput").value = "";
+            } else {
+                alert("Please enter a valid item.");
+            }
+        });
+
+        // Clear all items from the list
+        document.getElementById("clearItemsButton").addEventListener("click", function() {
+            const itemList = document.getElementById("itemList");
+
+            // Remove all child elements (list items)
+            while (itemList.firstChild) {
+                itemList.removeChild(itemList.firstChild);
+            }
+        });
+
+        // Remove individual item on click
+        document.getElementById("itemList").addEventListener("click", function(event) {
+            // Check if a list item was clicked
+            if (event.target.tagName === "LI") {
+                // Remove the clicked list item
+                event.target.remove();
+            }
+        });
+    </script>
+
+</body>
+</html>

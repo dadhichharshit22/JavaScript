@@ -1,0 +1,25 @@
+{
+    "employees": [
+        {
+            "name": "John Doe",
+            "designation": "Software Engineer",
+            "project": "Website Redesign",
+            "experience": 3,
+            "image": "https://via.placeholder.com/300"
+        },
+        {
+            "name": "Jane Smith",
+            "designation": "Product Manager",
+            "project": "Mobile App Development",
+            "experience": 5,
+            "image": "https://via.placeholder.com/300"
+        },
+        {
+            "name": "Sam Wilson",
+            "designation": "UI/UX Designer",
+            "project": "Customer Portal",
+            "experience": 4,
+            "image": "https://via.placeholder.com/300"
+        }
+    ]
+}
